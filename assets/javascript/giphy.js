@@ -1,7 +1,4 @@
-// var APIKey = "u3dO4sRQ09yQ8ZsF3dPRXKX0Irdipq4R";
-// var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=u3dO4sRQ09yQ8ZsF3dPRXKX0Irdipq4R&limit=10");
 
-// xhr.done(function(response) { console.log("success got data", response); });
 
 var topics = ["Dogs", "Cats", "Disney", "Dance", "Corgi"];
 
@@ -65,12 +62,9 @@ $("#buttons-view").on("click", "button", function () {
 
 $("#gifs-view").on("click",".imageAnimate", function(){
     var topicImage = $(this);
-    // var imageSrc = topicImage.attr("src");
     
     var state = topicImage.attr("data-state");
-      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-      // Then, set the image's data-state to animate
-      // Else set src to the data-still value
+
       if (state === "still") {
         topicImage.attr("src", topicImage.attr("data-animate"));
         topicImage.attr("data-state", "animate");
