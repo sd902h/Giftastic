@@ -6,13 +6,13 @@
 var topics = ["Dogs", "Cats", "Disney", "Dance", "Corgi"];
 
 function renderButtons() {
-    $("#gifs-view").empty();
+    $("#buttons-view").empty();
     for (var i = 0; i < topics.length; i++) {
         var a = $("<button>");
         a.addClass("topic");
         a.attr("data-name", topics[i]);
         a.text(topics[i]);
-        $("#gifs-view").append(a);
+        $("#buttons-view").append(a);
     }
 }
 
@@ -28,7 +28,8 @@ $("#add-gif").on("click", function (event) {
 renderButtons();
 
 
-$("#gifs-view").on("click", "button", function () {
+$("#buttons-view").on("click", "button", function () {
+    document.getElementById("gifs-view").innerHTML = "";
     var topicButton = $(this).attr("data-name");
 
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -56,7 +57,7 @@ $("#gifs-view").on("click", "button", function () {
 
             gifDiv.append(p);
             gifDiv.append(topicImage);
-            $("#gifs-view").prepend(gifDiv);
+            $("#gifs-view").append(gifDiv);
         }
     })
     
